@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+
+<title>class VoteATX::VotingPlace::ElectionDay - VoteATX</title>
+
+<link type="text/css" media="screen" href="../../rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../";
+</script>
+
+<script type="text/javascript" charset="utf-8" src="../../js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/navigation.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/search_index.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/search.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/searcher.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/darkfish.js"></script>
+
+
+<body id="top" class="class">
+<nav id="metadata">
+  <nav id="home-section" class="section">
+  <h3 class="section-header">
+    <a href="../../index.html">Home</a>
+    <a href="../../table_of_contents.html#classes">Classes</a>
+    <a href="../../table_of_contents.html#methods">Methods</a>
+  </h3>
+</nav>
+
+
+  <nav id="search-section" class="section project-section" class="initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <h3 class="section-header">
+      <input type="text" name="search" placeholder="Search" id="search-field"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </h3>
+  </form>
+
+  <ul id="search-results" class="initially-hidden"></ul>
+</nav>
+
+
+  
+
+  <div id="file-metadata">
+    <nav id="file-list-section" class="section">
+  <h3 class="section-header">Defined In</h3>
+  <ul>
+    <li>lib/voteatx/voting-place.rb
+  </ul>
+</nav>
+
+    
+  </div>
+
+  <div id="class-metadata">
+    
+    <nav id="parent-class-section" class="section">
+  <h3 class="section-header">Parent</h3>
+  
+  <p class="link"><a href="Base.html">VoteATX::VotingPlace::Base</a>
+  
+</nav>
+
+    
+    
+    <!-- Method Quickref -->
+<nav id="method-list-section" class="section">
+  <h3 class="section-header">Methods</h3>
+
+  <ul class="link-list">
+    
+    <li ><a href="#method-c-search">::search</a>
+    
+  </ul>
+</nav>
+
+  </div>
+
+  <div id="project-metadata">
+    <nav id="fileindex-section" class="section project-section">
+  <h3 class="section-header">Pages</h3>
+
+  <ul>
+  
+    <li class="file"><a href="../../README-data_rdoc.html">README-data</a>
+  
+    <li class="file"><a href="../../README_rdoc.html">README</a>
+  
+  </ul>
+</nav>
+
+    <nav id="classindex-section" class="section project-section">
+  <h3 class="section-header">Class and Module Index</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="../../Array.html">Array</a>
+  
+    <li><a href="../../NilClass.html">NilClass</a>
+  
+    <li><a href="../../String.html">String</a>
+  
+    <li><a href="../../VoteATX.html">VoteATX</a>
+  
+    <li><a href="../../VoteATX/Finder.html">VoteATX::Finder</a>
+  
+    <li><a href="../../VoteATX/Loader.html">VoteATX::Loader</a>
+  
+    <li><a href="../../VoteATX/Service.html">VoteATX::Service</a>
+  
+    <li><a href="../../VoteATX/Service/Sinatra.html">VoteATX::Service::Sinatra</a>
+  
+    <li><a href="../../VoteATX/VotingPlace.html">VoteATX::VotingPlace</a>
+  
+    <li><a href="../../VoteATX/VotingPlace/Base.html">VoteATX::VotingPlace::Base</a>
+  
+    <li><a href="../../VoteATX/VotingPlace/Early.html">VoteATX::VotingPlace::Early</a>
+  
+    <li><a href="../../VoteATX/VotingPlace/ElectionDay.html">VoteATX::VotingPlace::ElectionDay</a>
+  
+  </ul>
+</nav>
+
+  </div>
+</nav>
+
+<div id="documentation">
+  <h1 class="class">class VoteATX::VotingPlace::ElectionDay</h1>
+
+  <div id="description" class="description">
+    
+<p>Implementation of a voting place for election day.</p>
+
+  </div><!-- description -->
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    <!-- Methods -->
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Class Methods</h3>
+
+    
+      <div id="method-c-search" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">search</span><span
+            class="method-args">(db, origin, options = {})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Return the voting place for the voting district that contains the indicated
+location.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="search-source">
+            <pre><span class="ruby-comment"># File lib/voteatx/voting-place.rb, line 148</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">search</span>(<span class="ruby-identifier">db</span>, <span class="ruby-identifier">origin</span>, <span class="ruby-identifier">options</span> = {})
+
+  <span class="ruby-identifier">now</span> = <span class="ruby-identifier">options</span>[<span class="ruby-value">:time</span>] <span class="ruby-operator">||</span> <span class="ruby-constant">Time</span>.<span class="ruby-identifier">now</span>
+
+  <span class="ruby-identifier">district</span> = <span class="ruby-identifier">db</span>[<span class="ruby-value">:voting_districts</span>]            .<span class="ruby-identifier">select</span>(<span class="ruby-value">:p_vtd</span>)            .<span class="ruby-identifier">select_append</span>{<span class="ruby-constant">AsGeoJSON</span>(<span class="ruby-constant">ST_Transform</span>(<span class="ruby-value">:geometry</span>, <span class="ruby-value">4326</span>)).<span class="ruby-identifier">as</span>(<span class="ruby-value">:region</span>)}            .<span class="ruby-identifier">filter</span>{<span class="ruby-constant">ST_Contains</span>(<span class="ruby-value">:geometry</span>, <span class="ruby-constant">ST_Transform</span>(<span class="ruby-constant">MakePoint</span>(<span class="ruby-identifier">origin</span>.<span class="ruby-identifier">lng</span>, <span class="ruby-identifier">origin</span>.<span class="ruby-identifier">lat</span>, <span class="ruby-value">4326</span>), <span class="ruby-value">3081</span>))}            .<span class="ruby-identifier">first</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">nil</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">district</span>
+  <span class="ruby-identifier">precinct</span> = <span class="ruby-identifier">district</span>[<span class="ruby-value">:P_VTD</span>].<span class="ruby-identifier">to_i</span>
+
+  <span class="ruby-identifier">place</span> = <span class="ruby-identifier">search_query</span>(<span class="ruby-identifier">db</span>, <span class="ruby-value">:place_type</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;ELECTION_DAY&quot;</span>, <span class="ruby-value">:precinct</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">precinct</span>).<span class="ruby-identifier">first</span>
+  <span class="ruby-identifier">raise</span> <span class="ruby-node">&quot;cannot find election day voting place for precinct \&quot;#{precinct}\&quot;&quot;</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">place</span>
+  <span class="ruby-identifier">raise</span> <span class="ruby-node">&quot;cannot find election day voting location for precinct \&quot;#{precinct}\&quot;&quot;</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">place</span>[<span class="ruby-value">:geometry</span>]
+
+  <span class="ruby-identifier">new</span>(<span class="ruby-value">:type</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">:ELECTION_DAY</span>,
+    <span class="ruby-value">:title</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;Your voting place (precinct #{precinct})&quot;</span>,
+    <span class="ruby-value">:precinct</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">precinct</span>,
+    <span class="ruby-value">:region</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-constant">FindIt</span><span class="ruby-operator">::</span><span class="ruby-constant">Asset</span><span class="ruby-operator">::</span><span class="ruby-constant">MapRegion</span>.<span class="ruby-identifier">from_geojson</span>(<span class="ruby-identifier">district</span>[<span class="ruby-value">:region</span>]),
+    <span class="ruby-value">:location</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">place</span>,
+    <span class="ruby-value">:is_open</span> =<span class="ruby-operator">&gt;</span> (<span class="ruby-identifier">now</span> <span class="ruby-operator">&gt;=</span> <span class="ruby-identifier">place</span>[<span class="ruby-value">:opens</span>] <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">now</span> <span class="ruby-operator">&lt;</span> <span class="ruby-identifier">place</span>[<span class="ruby-value">:closes</span>]),
+    <span class="ruby-value">:info</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">format_info</span>(<span class="ruby-identifier">place</span>))
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- search-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- search-method -->
+
+    
+    </section><!-- public-class-method-details -->
+  
+  </section><!-- 5Buntitled-5D -->
+
+</div><!-- documentation -->
+
+
+<footer id="validator-badges">
+  <p><a href="http://validator.w3.org/check/referer">[Validate]</a>
+  <p>Generated by <a href="https://github.com/rdoc/rdoc">RDoc</a> 4.0.1.
+  <p>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish Rdoc Generator</a> 3.
+</footer>
+

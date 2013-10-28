@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+
+<title>class VoteATX::VotingPlace::Early - VoteATX</title>
+
+<link type="text/css" media="screen" href="../../rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../";
+</script>
+
+<script type="text/javascript" charset="utf-8" src="../../js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/navigation.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/search_index.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/search.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/searcher.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/darkfish.js"></script>
+
+
+<body id="top" class="class">
+<nav id="metadata">
+  <nav id="home-section" class="section">
+  <h3 class="section-header">
+    <a href="../../index.html">Home</a>
+    <a href="../../table_of_contents.html#classes">Classes</a>
+    <a href="../../table_of_contents.html#methods">Methods</a>
+  </h3>
+</nav>
+
+
+  <nav id="search-section" class="section project-section" class="initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <h3 class="section-header">
+      <input type="text" name="search" placeholder="Search" id="search-field"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </h3>
+  </form>
+
+  <ul id="search-results" class="initially-hidden"></ul>
+</nav>
+
+
+  
+
+  <div id="file-metadata">
+    <nav id="file-list-section" class="section">
+  <h3 class="section-header">Defined In</h3>
+  <ul>
+    <li>lib/voteatx/voting-place.rb
+  </ul>
+</nav>
+
+    
+  </div>
+
+  <div id="class-metadata">
+    
+    <nav id="parent-class-section" class="section">
+  <h3 class="section-header">Parent</h3>
+  
+  <p class="link"><a href="Base.html">VoteATX::VotingPlace::Base</a>
+  
+</nav>
+
+    
+    
+    <!-- Method Quickref -->
+<nav id="method-list-section" class="section">
+  <h3 class="section-header">Methods</h3>
+
+  <ul class="link-list">
+    
+    <li ><a href="#method-c-search">::search</a>
+    
+  </ul>
+</nav>
+
+  </div>
+
+  <div id="project-metadata">
+    <nav id="fileindex-section" class="section project-section">
+  <h3 class="section-header">Pages</h3>
+
+  <ul>
+  
+    <li class="file"><a href="../../README-data_rdoc.html">README-data</a>
+  
+    <li class="file"><a href="../../README_rdoc.html">README</a>
+  
+  </ul>
+</nav>
+
+    <nav id="classindex-section" class="section project-section">
+  <h3 class="section-header">Class and Module Index</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="../../Array.html">Array</a>
+  
+    <li><a href="../../NilClass.html">NilClass</a>
+  
+    <li><a href="../../String.html">String</a>
+  
+    <li><a href="../../VoteATX.html">VoteATX</a>
+  
+    <li><a href="../../VoteATX/Finder.html">VoteATX::Finder</a>
+  
+    <li><a href="../../VoteATX/Loader.html">VoteATX::Loader</a>
+  
+    <li><a href="../../VoteATX/Service.html">VoteATX::Service</a>
+  
+    <li><a href="../../VoteATX/Service/Sinatra.html">VoteATX::Service::Sinatra</a>
+  
+    <li><a href="../../VoteATX/VotingPlace.html">VoteATX::VotingPlace</a>
+  
+    <li><a href="../../VoteATX/VotingPlace/Base.html">VoteATX::VotingPlace::Base</a>
+  
+    <li><a href="../../VoteATX/VotingPlace/Early.html">VoteATX::VotingPlace::Early</a>
+  
+    <li><a href="../../VoteATX/VotingPlace/ElectionDay.html">VoteATX::VotingPlace::ElectionDay</a>
+  
+  </ul>
+</nav>
+
+  </div>
+</nav>
+
+<div id="documentation">
+  <h1 class="class">class VoteATX::VotingPlace::Early</h1>
+
+  <div id="description" class="description">
+    
+<p>Implementation of an early voting place.</p>
+
+  </div><!-- description -->
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    <!-- Methods -->
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Class Methods</h3>
+
+    
+      <div id="method-c-search" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">search</span><span
+            class="method-args">(db, origin, options = {})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Return a list of early voting places for this given location.</p>
+
+<p>The list will contain the closest fixed early voting place that is closest
+to this location, plus zero or more selected mobile early voting locations.</p>
+
+<p>The selected mobile early voting locations will all be: 1) closer to the
+specified location than the nearest fixed early voting location, and 2) has
+not finally closed for this election.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="search-source">
+            <pre><span class="ruby-comment"># File lib/voteatx/voting-place.rb, line 190</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">search</span>(<span class="ruby-identifier">db</span>, <span class="ruby-identifier">origin</span>, <span class="ruby-identifier">options</span> = {})
+
+  <span class="ruby-identifier">now</span> = <span class="ruby-identifier">options</span>[<span class="ruby-value">:time</span>] <span class="ruby-operator">||</span> <span class="ruby-constant">Time</span>.<span class="ruby-identifier">now</span>
+  <span class="ruby-identifier">max_places</span> = <span class="ruby-identifier">options</span>[<span class="ruby-value">:max_places</span>] <span class="ruby-operator">||</span> <span class="ruby-constant">VoteATX</span><span class="ruby-operator">::</span><span class="ruby-constant">MAX_PLACES</span>
+  <span class="ruby-identifier">max_distance</span> = <span class="ruby-identifier">options</span>[<span class="ruby-value">:max_distance</span>] <span class="ruby-operator">||</span> <span class="ruby-constant">VoteATX</span><span class="ruby-operator">::</span><span class="ruby-constant">MAX_DISTANCE</span>
+  <span class="ruby-identifier">ret</span> = []
+
+  <span class="ruby-identifier">early_place</span> = <span class="ruby-identifier">search_query</span>(<span class="ruby-identifier">db</span>, <span class="ruby-value">:place_type</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;EARLY_FIXED&quot;</span>)            .<span class="ruby-identifier">select_append</span>{<span class="ruby-constant">ST_Distance</span>(<span class="ruby-identifier">geometry</span>, <span class="ruby-constant">MakePoint</span>(<span class="ruby-identifier">origin</span>.<span class="ruby-identifier">lng</span>, <span class="ruby-identifier">origin</span>.<span class="ruby-identifier">lat</span>, <span class="ruby-value">4326</span>)).<span class="ruby-identifier">as</span>(<span class="ruby-value">:dist</span>)}            .<span class="ruby-identifier">filter</span>{<span class="ruby-identifier">dist</span> <span class="ruby-operator">&lt;=</span> <span class="ruby-identifier">max_distance</span>}            .<span class="ruby-identifier">order</span>(<span class="ruby-value">:dist</span>.<span class="ruby-identifier">asc</span>)            .<span class="ruby-identifier">first</span>
+
+  <span class="ruby-keyword">return</span> [] <span class="ruby-keyword">unless</span> <span class="ruby-identifier">early_place</span>
+
+  <span class="ruby-identifier">rs</span> = <span class="ruby-identifier">db</span>[<span class="ruby-value">:voting_schedule_entries</span>]            .<span class="ruby-identifier">filter</span>(<span class="ruby-value">:schedule_id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">early_place</span>[<span class="ruby-value">:schedule_id</span>])            .<span class="ruby-identifier">filter</span>{<span class="ruby-identifier">opens</span> <span class="ruby-operator">&lt;=</span> <span class="ruby-identifier">now</span>}            .<span class="ruby-identifier">filter</span>{<span class="ruby-identifier">closes</span> <span class="ruby-operator">&gt;</span> <span class="ruby-identifier">now</span>}
+  <span class="ruby-identifier">is_open</span> = (<span class="ruby-identifier">rs</span>.<span class="ruby-identifier">count</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>)
+
+  <span class="ruby-identifier">ret</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">new</span>(<span class="ruby-value">:type</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">:EARLY_VOTING_FIXED</span>,
+    <span class="ruby-value">:title</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;Early voting location&quot;</span>,
+    <span class="ruby-value">:location</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">early_place</span>,
+    <span class="ruby-value">:is_open</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">is_open</span>,
+    <span class="ruby-value">:info</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">format_info</span>(<span class="ruby-identifier">early_place</span>))
+
+  <span class="ruby-identifier">mobile_places</span> = <span class="ruby-identifier">search_query</span>(<span class="ruby-identifier">db</span>, <span class="ruby-value">:place_type</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;EARLY_MOBILE&quot;</span>)            .<span class="ruby-identifier">select_append</span>{<span class="ruby-constant">ST_Distance</span>(<span class="ruby-identifier">geometry</span>, <span class="ruby-constant">MakePoint</span>(<span class="ruby-identifier">origin</span>.<span class="ruby-identifier">lng</span>, <span class="ruby-identifier">origin</span>.<span class="ruby-identifier">lat</span>, <span class="ruby-value">4326</span>)).<span class="ruby-identifier">as</span>(<span class="ruby-value">:dist</span>)}            .<span class="ruby-identifier">filter</span>{<span class="ruby-identifier">dist</span> <span class="ruby-operator">&lt;</span> <span class="ruby-value">1.5</span><span class="ruby-operator">*</span><span class="ruby-identifier">early_place</span>[<span class="ruby-value">:dist</span>]}            .<span class="ruby-identifier">filter</span>{<span class="ruby-identifier">closes</span> <span class="ruby-operator">&gt;</span> <span class="ruby-identifier">now</span>}            .<span class="ruby-identifier">order</span>(<span class="ruby-value">:opens</span>.<span class="ruby-identifier">asc</span>, <span class="ruby-value">:dist</span>.<span class="ruby-identifier">asc</span>)            .<span class="ruby-identifier">limit</span>(<span class="ruby-identifier">max_places</span> <span class="ruby-operator">-</span> <span class="ruby-value">1</span>)            .<span class="ruby-identifier">all</span>
+
+  <span class="ruby-identifier">mobile_places</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">place</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">is_open</span> = (<span class="ruby-identifier">now</span> <span class="ruby-operator">&gt;=</span> <span class="ruby-identifier">place</span>[<span class="ruby-value">:opens</span>])
+    <span class="ruby-identifier">ret</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">new</span>(<span class="ruby-value">:type</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">:EARLY_VOTING_MOBILE</span>,
+      <span class="ruby-value">:title</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;Mobile early voting location&quot;</span>,
+      <span class="ruby-value">:location</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">place</span>,
+      <span class="ruby-value">:is_open</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">is_open</span>,
+      <span class="ruby-value">:info</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">format_info</span>(<span class="ruby-identifier">place</span>))
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">ret</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- search-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- search-method -->
+
+    
+    </section><!-- public-class-method-details -->
+  
+  </section><!-- 5Buntitled-5D -->
+
+</div><!-- documentation -->
+
+
+<footer id="validator-badges">
+  <p><a href="http://validator.w3.org/check/referer">[Validate]</a>
+  <p>Generated by <a href="https://github.com/rdoc/rdoc">RDoc</a> 4.0.1.
+  <p>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish Rdoc Generator</a> 3.
+</footer>
+

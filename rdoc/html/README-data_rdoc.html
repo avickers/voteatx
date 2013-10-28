@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+
+<title>README-data - VoteATX</title>
+
+<link type="text/css" media="screen" href="./rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+</script>
+
+<script type="text/javascript" charset="utf-8" src="./js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/navigation.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/search_index.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/search.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/searcher.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/darkfish.js"></script>
+
+
+<body class="file">
+<nav id="metadata">
+  <nav id="home-section" class="section">
+  <h3 class="section-header">
+    <a href="./index.html">Home</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </h3>
+</nav>
+
+
+  <nav id="search-section" class="section project-section" class="initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <h3 class="section-header">
+      <input type="text" name="search" placeholder="Search" id="search-field"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </h3>
+  </form>
+
+  <ul id="search-results" class="initially-hidden"></ul>
+</nav>
+
+
+  
+<div id="table-of-contents">
+  <nav class="section">
+    <h3 class="section-header">Table of Contents</h3>
+    <ul>
+      <li><a href="#label-VoteATX+Database+Generation">VoteATX Database Generation</a>
+      <li><a href="#label-Overview+of+Database+Tables">Overview of Database Tables</a>
+      <li><a href="#label-How+to+Create+the+Database">How to Create the Database</a>
+      <li><a href="#label-How+to+Setup+Database+for+a+New+Election">How to Setup Database for a New Election</a>
+      <li><a href="#label-Problems+and+Feedback">Problems and Feedback</a>
+    </ul>
+  </nav>
+</div>
+
+
+  <div id="project-metadata">
+    <nav id="fileindex-section" class="section project-section">
+  <h3 class="section-header">Pages</h3>
+
+  <ul>
+  
+    <li class="file"><a href="./README-data_rdoc.html">README-data</a>
+  
+    <li class="file"><a href="./README_rdoc.html">README</a>
+  
+  </ul>
+</nav>
+
+    <nav id="classindex-section" class="section project-section">
+  <h3 class="section-header">Class and Module Index</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="./Array.html">Array</a>
+  
+    <li><a href="./NilClass.html">NilClass</a>
+  
+    <li><a href="./String.html">String</a>
+  
+    <li><a href="./VoteATX.html">VoteATX</a>
+  
+    <li><a href="./VoteATX/Finder.html">VoteATX::Finder</a>
+  
+    <li><a href="./VoteATX/Loader.html">VoteATX::Loader</a>
+  
+    <li><a href="./VoteATX/Service.html">VoteATX::Service</a>
+  
+    <li><a href="./VoteATX/Service/Sinatra.html">VoteATX::Service::Sinatra</a>
+  
+    <li><a href="./VoteATX/VotingPlace.html">VoteATX::VotingPlace</a>
+  
+    <li><a href="./VoteATX/VotingPlace/Base.html">VoteATX::VotingPlace::Base</a>
+  
+    <li><a href="./VoteATX/VotingPlace/Early.html">VoteATX::VotingPlace::Early</a>
+  
+    <li><a href="./VoteATX/VotingPlace/ElectionDay.html">VoteATX::VotingPlace::ElectionDay</a>
+  
+  </ul>
+</nav>
+
+  </div>
+</nav>
+
+<div id="documentation" class="description">
+  
+<h1 id="label-VoteATX+Database+Generation"><a href="VoteATX.html">VoteATX</a> Database Generation<span><a href="#label-VoteATX+Database+Generation">&para;</a> <a href="#documentation">&uarr;</a></span></h1>
+
+<h2 id="label-Overview+of+Database+Tables">Overview of Database Tables<span><a href="#label-Overview+of+Database+Tables">&para;</a> <a href="#documentation">&uarr;</a></span></h2>
+
+<p>Here is an overview of the key tables in the <em>VoteATX</em> database:</p>
+<dl class="rdoc-list label-list"><dt>voting_places
+<dd>
+<p>A voting place of any kind (early, mobile, election day) for this election.
+This is the table searched to find places to vote.</p>
+</dd><dt>voting_locations
+<dd>
+<p>A location where a voting place is.</p>
+
+<p><em>voting_places.location_id</em> is a foreign key into this table.</p>
+</dd><dt>voting_schedules
+<dd>
+<p>A schedule of hours for a voting place.</p>
+
+<p><em>voting_places.schedule_id</em> is a foreign key into this table.</p>
+</dd><dt>voting_schedule_entries
+<dd>
+<p>The line item details for a voting schedule.</p>
+
+<p>Each row is the open and close times for a single day in a schedule. The
+<em>schedule_id</em> column is a foreign key into the
+<em>voting_schedules</em> table.</p>
+</dd><dt>voting_districts
+<dd>
+<p>Boundaries of all the voting precincts.</p>
+
+<p>This is made from a completely separate data source: the geospatial “shape”
+file of voting districts. This is used to locate the precinct number for a
+given location (longitude/latitude).</p>
+</dd><dt>election_defs
+<dd>
+<p>Defintions to customize results for this election are stored here.</p>
+
+<p>The app should not require changes when updating to a new election. The
+information that might change, such as the election description, is stored
+here.</p>
+</dd></dl>
+
+<p>The database is generated from two sets of data:</p>
+<dl class="rdoc-list label-list"><dt>voting districts
+<dd>
+<p>The Travis County Clerk has provided a spreadsheet with three tables, one
+each for the various voting place types (election day, early fixed, early
+mobile). We manually convert them to individual CSV files, and then use a
+loader utility to load the voting place table.</p>
+
+<p>This information is in the “data/voting-districts/<em>YYYY</em>”
+subdirectory, where “YYYY” is the year in which the voting districts were
+drawn.</p>
+</dd><dt>voting places
+<dd>
+<p>The Travis County Tax Acessor-Collector office has provided a geospatial
+“shape” file that defines the boundaries of all the voting districts. We
+use “spatialite_tool” to load the SHP file into the database.</p>
+
+<p>This information is in the “data/voting-places/<em>YYYYMMDD</em>”
+subdirectory, where “<em>YYYYMMDD</em>” is the data of the election.</p>
+</dd></dl>
+
+<p>Helpful Hint: The Firefox “SQLite Manager” plug-in is a great tool for
+exploring SQLite databases. It works fine for Spatialite databases, with
+the provision that <em>geometry</em> columns should be treated as opaque
+blobs, and there will be a number of additional tables created by
+Spatialite for geospatial support.  More info here: <a
+href="https://code.google.com/p/sqlite-manager">code.google.com/p/sqlite-manager</a>/</p>
+
+<h2 id="label-How+to+Create+the+Database">How to Create the Database<span><a href="#label-How+to+Create+the+Database">&para;</a> <a href="#documentation">&uarr;</a></span></h2>
+
+<p>This procedure works only for “voting-places” subdirectories that contain a
+“generate.rb” script. (Version 20121106 and later)</p>
+<ul><li>
+<p>cd into the “data/voting-places/YYYYMMDD” directory.</p>
+</li><li>
+<p>run: sh ../create_db.sh voteatx.db</p>
+</li><li>
+<p>cd back to the top-level project directory</p>
+</li><li>
+<p>run: ln -s data/voting-places/YYYYMMDD/voteatx.db</p>
+</li></ul>
+
+<h2 id="label-How+to+Setup+Database+for+a+New+Election">How to Setup Database for a New Election<span><a href="#label-How+to+Setup+Database+for+a+New+Election">&para;</a> <a href="#documentation">&uarr;</a></span></h2>
+
+<p>Here is the process I use to setup the data for a new election.</p>
+<ul><li>
+<p>Create a “data/voting-places/<em>YYYYMMDD</em>” directory. That’s where all
+the files will be created and work will be stored.</p>
+</li><li>
+<p>Contact the Travis County Clerk’s Elections Division
+(elections@co.travis.tx.us) in advance of the election to get a copy of the
+voting places dataset.</p>
+</li><li>
+<p>In the past, the dataset has been provided to me as an XLSX spreadsheet
+with three sheets, one for each voting place type.  Manually export each
+sheet to a CSV file.</p>
+</li><li>
+<p>I’ve found I’ve had to do some data cleanup, so I recommend making a copy
+of each CSV (with “.csv.orig” filetype) for reference purposes.</p>
+</li><li>
+<p>Copy the “generate.rb” script from the most recent election to this
+directory.</p>
+</li><li>
+<p>Tailor the “generate.rb” script for this election. See the comments in the
+script for additional information.</p>
+</li><li>
+<p>Run the “create_db.sh” script, as described above.</p>
+</li><li>
+<p>Make corrections to the data (“CSV” files) as needed, and re-run the
+creation script.</p>
+</li></ul>
+
+<h2 id="label-Problems+and+Feedback">Problems and Feedback<span><a href="#label-Problems+and+Feedback">&para;</a> <a href="#documentation">&uarr;</a></span></h2>
+
+<p>If you encounter any difficulties or have any feedback, please use the
+issue tracker: <a
+href="https://github.com/chip-rosenthal/voteatx/issues">github.com/chip-rosenthal/voteatx/issues</a></p>
+<hr style="height: 1px">
+
+<p>Chip Rosenthal &lt;chip@unicom.com&gt;</p>
+
+</div>
+
+
+
+<footer id="validator-badges">
+  <p><a href="http://validator.w3.org/check/referer">[Validate]</a>
+  <p>Generated by <a href="https://github.com/rdoc/rdoc">RDoc</a> 4.0.1.
+  <p>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish Rdoc Generator</a> 3.
+</footer>
+

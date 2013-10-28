@@ -1,0 +1,8 @@
+Mon, 28 Oct 2013 11:52:50 -0500
+README-data.rdoc	Mon, 28 Oct 2013 11:51:40 -0500
+README.rdoc	Mon, 28 Oct 2013 11:52:25 -0500
+lib/voteatx.rb	Mon, 28 Oct 2013 11:25:43 -0500
+lib/voteatx/finder.rb	Wed, 23 Oct 2013 15:02:28 -0500
+lib/voteatx/loader.rb	Mon, 28 Oct 2013 11:25:43 -0500
+lib/voteatx/service.rb	Mon, 28 Oct 2013 11:25:43 -0500
+lib/voteatx/voting-place.rb	Wed, 23 Oct 2013 14:15:18 -0500

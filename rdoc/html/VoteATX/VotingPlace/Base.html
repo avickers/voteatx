@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+
+<title>class VoteATX::VotingPlace::Base - VoteATX</title>
+
+<link type="text/css" media="screen" href="../../rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../";
+</script>
+
+<script type="text/javascript" charset="utf-8" src="../../js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/navigation.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/search_index.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/search.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/searcher.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/darkfish.js"></script>
+
+
+<body id="top" class="class">
+<nav id="metadata">
+  <nav id="home-section" class="section">
+  <h3 class="section-header">
+    <a href="../../index.html">Home</a>
+    <a href="../../table_of_contents.html#classes">Classes</a>
+    <a href="../../table_of_contents.html#methods">Methods</a>
+  </h3>
+</nav>
+
+
+  <nav id="search-section" class="section project-section" class="initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <h3 class="section-header">
+      <input type="text" name="search" placeholder="Search" id="search-field"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </h3>
+  </form>
+
+  <ul id="search-results" class="initially-hidden"></ul>
+</nav>
+
+
+  
+
+  <div id="file-metadata">
+    <nav id="file-list-section" class="section">
+  <h3 class="section-header">Defined In</h3>
+  <ul>
+    <li>lib/voteatx/voting-place.rb
+  </ul>
+</nav>
+
+    
+  </div>
+
+  <div id="class-metadata">
+    
+    <nav id="parent-class-section" class="section">
+  <h3 class="section-header">Parent</h3>
+  
+  <p class="link">Object
+  
+</nav>
+
+    
+    
+    <!-- Method Quickref -->
+<nav id="method-list-section" class="section">
+  <h3 class="section-header">Methods</h3>
+
+  <ul class="link-list">
+    
+    <li ><a href="#method-c-format_info">::format_info</a>
+    
+    <li ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-c-place_marker">::place_marker</a>
+    
+    <li ><a href="#method-c-search">::search</a>
+    
+    <li ><a href="#method-c-search_query">::search_query</a>
+    
+    <li ><a href="#method-i-to_h">#to_h</a>
+    
+  </ul>
+</nav>
+
+  </div>
+
+  <div id="project-metadata">
+    <nav id="fileindex-section" class="section project-section">
+  <h3 class="section-header">Pages</h3>
+
+  <ul>
+  
+    <li class="file"><a href="../../README-data_rdoc.html">README-data</a>
+  
+    <li class="file"><a href="../../README_rdoc.html">README</a>
+  
+  </ul>
+</nav>
+
+    <nav id="classindex-section" class="section project-section">
+  <h3 class="section-header">Class and Module Index</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="../../Array.html">Array</a>
+  
+    <li><a href="../../NilClass.html">NilClass</a>
+  
+    <li><a href="../../String.html">String</a>
+  
+    <li><a href="../../VoteATX.html">VoteATX</a>
+  
+    <li><a href="../../VoteATX/Finder.html">VoteATX::Finder</a>
+  
+    <li><a href="../../VoteATX/Loader.html">VoteATX::Loader</a>
+  
+    <li><a href="../../VoteATX/Service.html">VoteATX::Service</a>
+  
+    <li><a href="../../VoteATX/Service/Sinatra.html">VoteATX::Service::Sinatra</a>
+  
+    <li><a href="../../VoteATX/VotingPlace.html">VoteATX::VotingPlace</a>
+  
+    <li><a href="../../VoteATX/VotingPlace/Base.html">VoteATX::VotingPlace::Base</a>
+  
+    <li><a href="../../VoteATX/VotingPlace/Early.html">VoteATX::VotingPlace::Early</a>
+  
+    <li><a href="../../VoteATX/VotingPlace/ElectionDay.html">VoteATX::VotingPlace::ElectionDay</a>
+  
+  </ul>
+</nav>
+
+  </div>
+</nav>
+
+<div id="documentation">
+  <h1 class="class">class VoteATX::VotingPlace::Base</h1>
+
+  <div id="description" class="description">
+    
+<p><a href="Base.html">Base</a> class for a voting place.</p>
+
+<p>This class should not be accessed directly. Instead, a derived class such
+as ::ElectionDay or ::Early should be used.</p>
+
+  </div><!-- description -->
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+    <!-- Constants -->
+    <section id="constants-list" class="section">
+      <h3 class="section-header">Constants</h3>
+      <dl>
+      
+        <dt id="ELECTION_TYPE_MARKER_SUFFIX">ELECTION_TYPE_MARKER_SUFFIX
+        
+        <dd class="description">
+        
+      
+      </dl>
+    </section>
+    
+
+    
+    <!-- Attributes -->
+    <section id="attribute-method-details" class="method-section section">
+      <h3 class="section-header">Attributes</h3>
+
+      
+      <div id="attribute-i-info" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">info</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-is_open" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">is_open</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-location" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">location</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-marker" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">marker</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-origin" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">origin</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-precinct" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">precinct</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-region" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">region</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-title" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">title</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-type" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">type</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+    </section><!-- attribute-method-details -->
+    
+
+    <!-- Methods -->
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Class Methods</h3>
+
+    
+      <div id="method-c-format_info" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">format_info</span><span
+            class="method-args">(place)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Generate content for an info window from database record for a voting
+place.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="format_info-source">
+            <pre><span class="ruby-comment"># File lib/voteatx/voting-place.rb, line 92</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">format_info</span>(<span class="ruby-identifier">place</span>)
+  <span class="ruby-identifier">info</span> = []
+  <span class="ruby-identifier">info</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;&lt;b&gt;&quot;</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">place</span>[<span class="ruby-value">:title</span>].<span class="ruby-identifier">escape_html</span> <span class="ruby-operator">+</span> <span class="ruby-string">&quot;&lt;/b&gt;&quot;</span>
+  <span class="ruby-identifier">info</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;&lt;i&gt;&quot;</span> <span class="ruby-operator">+</span> <span class="ruby-ivar">@election_description</span>.<span class="ruby-identifier">escape_html</span> <span class="ruby-operator">+</span> <span class="ruby-string">&quot;&lt;/i&gt;&quot;</span>
+  <span class="ruby-identifier">info</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;&quot;</span>
+  <span class="ruby-identifier">info</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">place</span>[<span class="ruby-value">:location_formatted</span>].<span class="ruby-identifier">escape_html</span>
+  <span class="ruby-identifier">info</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;&quot;</span>
+  <span class="ruby-identifier">info</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;Hours of operation:&quot;</span>
+  <span class="ruby-identifier">info</span> <span class="ruby-operator">+=</span> <span class="ruby-identifier">place</span>[<span class="ruby-value">:schedule_formatted</span>].<span class="ruby-identifier">escape_html</span>.<span class="ruby-identifier">split</span>(<span class="ruby-string">&quot;\n&quot;</span>).<span class="ruby-identifier">map</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">s</span><span class="ruby-operator">|</span> <span class="ruby-string">&quot;\u2022 &quot;</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">s</span>}
+  <span class="ruby-keyword">unless</span> <span class="ruby-identifier">place</span>[<span class="ruby-value">:notes</span>].<span class="ruby-identifier">empty?</span>
+    <span class="ruby-identifier">info</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;&quot;</span>
+    <span class="ruby-identifier">info</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">place</span>[<span class="ruby-value">:notes</span>].<span class="ruby-identifier">escape_html</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">unless</span> <span class="ruby-ivar">@election_info</span>.<span class="ruby-identifier">empty?</span>
+    <span class="ruby-identifier">info</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;&quot;</span>
+    <span class="ruby-identifier">info</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-ivar">@election_info</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">info</span>.<span class="ruby-identifier">join</span>(<span class="ruby-string">&quot;\n&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- format_info-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- format_info-method -->
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(params)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Create a new voting place instance.</p>
+
+<p>Parameters:</p>
+<ul><li>
+<p>:type - one of: :ELECTION_DAY, :EARLY_VOTING_FIXED, :EARLY_VOTING_MOBILE.</p>
+</li><li>
+<p>:title - description of what kind of voting place this is.</p>
+</li><li>
+<p>:location - a row from the “voting_locations” table.</p>
+</li><li>
+<p>:is_open - true if this voting place is open right now, else false.</p>
+</li><li>
+<p>:info - text may be inserted into an “information window” for this place</p>
+</li><li>
+<p>:precinct - precinct number for :ELECTION_DAY place, else undefined</p>
+</li><li>
+<p>:region - GeoJSON region of voting precinct for :ELECTION_DAY place, else
+undefined</p>
+</li></ul>
+
+<p>XXX - Is it possible to generate the :info value in this constructor?</p>
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File lib/voteatx/voting-place.rb, line 28</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">params</span>)
+  <span class="ruby-identifier">p</span> = <span class="ruby-identifier">params</span>.<span class="ruby-identifier">dup</span>
+  <span class="ruby-ivar">@type</span> = <span class="ruby-identifier">p</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-value">:type</span>) <span class="ruby-keyword">or</span> <span class="ruby-identifier">raise</span> <span class="ruby-string">&quot;required VoteATX::VotingPlace attribute \&quot;:type\&quot; not specified&quot;</span>
+  <span class="ruby-ivar">@title</span> = <span class="ruby-identifier">p</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-value">:title</span>) <span class="ruby-keyword">or</span> <span class="ruby-identifier">raise</span> <span class="ruby-string">&quot;required VoteATX::VotingPlace attribute \&quot;:title\&quot; not specified&quot;</span>
+  <span class="ruby-ivar">@location</span> = <span class="ruby-identifier">p</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-value">:location</span>) <span class="ruby-keyword">or</span> <span class="ruby-identifier">raise</span> <span class="ruby-string">&quot;required VoteATX::VotingPlace attribute \&quot;:location\&quot; not specified&quot;</span>
+  <span class="ruby-ivar">@is_open</span> = <span class="ruby-operator">!</span><span class="ruby-operator">!</span> <span class="ruby-identifier">p</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-value">:is_open</span>)
+  <span class="ruby-ivar">@info</span> = <span class="ruby-identifier">p</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-value">:info</span>) <span class="ruby-keyword">or</span> <span class="ruby-identifier">raise</span> <span class="ruby-string">&quot;required VoteATX::VotingPlace attribute \&quot;:info\&quot; not specified&quot;</span>
+
+  <span class="ruby-keyword">case</span> <span class="ruby-ivar">@type</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-value">:ELECTION_DAY</span>
+    <span class="ruby-ivar">@precinct</span> = <span class="ruby-identifier">p</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-value">:precinct</span>) <span class="ruby-keyword">or</span> <span class="ruby-identifier">raise</span> <span class="ruby-string">&quot;required VoteATX::VotingPlace attribute \&quot;:precinct\&quot; not specified&quot;</span>
+    <span class="ruby-ivar">@region</span> = <span class="ruby-identifier">p</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-value">:region</span>) <span class="ruby-keyword">or</span> <span class="ruby-identifier">raise</span> <span class="ruby-string">&quot;required VoteATX::VotingPlace attribute \&quot;:region\&quot; not specified&quot;</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-value">:EARLY_VOTING_FIXED</span>, <span class="ruby-value">:EARLY_VOTING_MOBILE</span>
+    <span class="ruby-comment"># nop</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-node">&quot;unknown voting place type \&quot;#{@type}\&quot;&quot;</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">raise</span> <span class="ruby-node">&quot;unknown initialization parameter(s) specified: #{p.keys.join(', ')}&quot;</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">p</span>.<span class="ruby-identifier">empty?</span>
+
+  <span class="ruby-ivar">@marker</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">place_marker</span>(<span class="ruby-ivar">@type</span>, <span class="ruby-ivar">@is_open</span>)
+
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- new-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- new-method -->
+
+    
+      <div id="method-c-place_marker" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">place_marker</span><span
+            class="method-args">(type, is_open)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Generate a FindIt::Asset::MapMarker for given voting place type.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="place_marker-source">
+            <pre><span class="ruby-comment"># File lib/voteatx/voting-place.rb, line 83</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">place_marker</span>(<span class="ruby-identifier">type</span>, <span class="ruby-identifier">is_open</span>)
+  <span class="ruby-identifier">p</span> = <span class="ruby-constant">ELECTION_TYPE_MARKER_SUFFIX</span>[<span class="ruby-identifier">type</span>] <span class="ruby-keyword">or</span> <span class="ruby-identifier">raise</span> <span class="ruby-node">&quot;unknown voting place type \&quot;#{type}\&quot;&quot;</span>
+  <span class="ruby-identifier">oc</span> = (<span class="ruby-identifier">is_open</span> <span class="ruby-operator">?</span> <span class="ruby-string">&quot;&quot;</span> <span class="ruby-operator">:</span> <span class="ruby-string">&quot;_closed&quot;</span>)
+  <span class="ruby-identifier">graphic</span> = <span class="ruby-node">&quot;/mapicons/icon_vote#{p}#{oc}.png&quot;</span>
+  <span class="ruby-constant">FindIt</span><span class="ruby-operator">::</span><span class="ruby-constant">Asset</span><span class="ruby-operator">::</span><span class="ruby-constant">MapMarker</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">graphic</span>, <span class="ruby-value">:shadow</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;icon_vote_shadow.png&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- place_marker-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- place_marker-method -->
+
+    
+      <div id="method-c-search" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">search</span><span
+            class="method-args">(db, origin, options = {})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>A derived class must override this method.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="search-source">
+            <pre><span class="ruby-comment"># File lib/voteatx/voting-place.rb, line 136</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">search</span>(<span class="ruby-identifier">db</span>, <span class="ruby-identifier">origin</span>, <span class="ruby-identifier">options</span> = {})
+  <span class="ruby-identifier">raise</span> <span class="ruby-string">&quot;must override the search method in the derived class&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- search-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- search-method -->
+
+    
+      <div id="method-c-search_query" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">search_query</span><span
+            class="method-args">(db, *conditions)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Convenience function to create a search query for a voting place.</p>
+
+<p>This is used in the search methods to create a Sequel result set for a
+query against the “voting_places” table.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="search_query-source">
+            <pre><span class="ruby-comment"># File lib/voteatx/voting-place.rb, line 118</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">search_query</span>(<span class="ruby-identifier">db</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">conditions</span>)
+
+  <span class="ruby-comment"># Grab the election definitions for later use, if we haven't already</span>
+  <span class="ruby-ivar">@election_description</span> <span class="ruby-operator">||=</span> <span class="ruby-identifier">db</span>[<span class="ruby-value">:election_defs</span>][<span class="ruby-value">:name</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;ELECTION_DESCRIPTION&quot;</span>][<span class="ruby-value">:value</span>]
+  <span class="ruby-ivar">@election_info</span> <span class="ruby-operator">||=</span> <span class="ruby-identifier">db</span>[<span class="ruby-value">:election_defs</span>][<span class="ruby-value">:name</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;ELECTION_INFO&quot;</span>][<span class="ruby-value">:value</span>]
+
+  <span class="ruby-identifier">db</span>[<span class="ruby-value">:voting_places</span>]            .<span class="ruby-identifier">select_append</span>(<span class="ruby-value">:voting_locations__formatted</span>.<span class="ruby-identifier">as</span>(<span class="ruby-value">:location_formatted</span>))            .<span class="ruby-identifier">select_append</span>(<span class="ruby-value">:voting_schedules__formatted</span>.<span class="ruby-identifier">as</span>(<span class="ruby-value">:schedule_formatted</span>))            .<span class="ruby-identifier">select_append</span>{<span class="ruby-constant">ST_X</span>(<span class="ruby-value">:voting_locations__geometry</span>).<span class="ruby-identifier">as</span>(<span class="ruby-value">:longitude</span>)}            .<span class="ruby-identifier">select_append</span>{<span class="ruby-constant">ST_Y</span>(<span class="ruby-value">:voting_locations__geometry</span>).<span class="ruby-identifier">as</span>(<span class="ruby-value">:latitude</span>)}            .<span class="ruby-identifier">filter</span>(<span class="ruby-identifier">conditions</span>)            .<span class="ruby-identifier">join</span>(<span class="ruby-value">:voting_locations</span>, <span class="ruby-value">:id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">:location_id</span>)            .<span class="ruby-identifier">join</span>(<span class="ruby-value">:voting_schedules</span>, <span class="ruby-value">:id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">:voting_places__schedule_id</span>)            .<span class="ruby-identifier">join</span>(<span class="ruby-value">:voting_schedule_entries</span>, <span class="ruby-value">:schedule_id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">:id</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- search_query-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- search_query-method -->
+
+    
+    </section><!-- public-class-method-details -->
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Instance Methods</h3>
+
+    
+      <div id="method-i-to_h" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">to_h</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="to_h-source">
+            <pre><span class="ruby-comment"># File lib/voteatx/voting-place.rb, line 52</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">to_h</span>
+  <span class="ruby-identifier">h</span> = {
+    <span class="ruby-value">:type</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@type</span>,
+    <span class="ruby-value">:title</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@title</span>,
+    <span class="ruby-value">:precinct</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@precinct</span>,
+    <span class="ruby-value">:region</span> =<span class="ruby-operator">&gt;</span> (<span class="ruby-ivar">@region</span> <span class="ruby-operator">?</span> <span class="ruby-ivar">@region</span>.<span class="ruby-identifier">to_h</span> <span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>),
+    <span class="ruby-value">:location</span> =<span class="ruby-operator">&gt;</span> {
+      <span class="ruby-value">:name</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@location</span>[<span class="ruby-value">:name</span>],
+      <span class="ruby-value">:address</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@location</span>[<span class="ruby-value">:address</span>],
+      <span class="ruby-value">:city</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@location</span>[<span class="ruby-value">:city</span>],
+      <span class="ruby-value">:state</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@location</span>[<span class="ruby-value">:state</span>],
+      <span class="ruby-value">:zip</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@location</span>[<span class="ruby-value">:zip</span>],
+      <span class="ruby-value">:latitude</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@location</span>[<span class="ruby-value">:latitude</span>],
+      <span class="ruby-value">:longitude</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@location</span>[<span class="ruby-value">:longitude</span>],
+    },
+    <span class="ruby-value">:marker</span> =<span class="ruby-operator">&gt;</span> {
+      <span class="ruby-value">:icon</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@marker</span>.<span class="ruby-identifier">marker</span>.<span class="ruby-identifier">to_h</span>,
+      <span class="ruby-value">:shadow</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@marker</span>.<span class="ruby-identifier">shadow</span>.<span class="ruby-identifier">to_h</span>,
+    },
+    <span class="ruby-value">:is_open</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@is_open</span>,
+    <span class="ruby-value">:info</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@info</span>,
+  }
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- to_h-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- to_h-method -->
+
+    
+    </section><!-- public-instance-method-details -->
+  
+  </section><!-- 5Buntitled-5D -->
+
+</div><!-- documentation -->
+
+
+<footer id="validator-badges">
+  <p><a href="http://validator.w3.org/check/referer">[Validate]</a>
+  <p>Generated by <a href="https://github.com/rdoc/rdoc">RDoc</a> 4.0.1.
+  <p>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish Rdoc Generator</a> 3.
+</footer>
+

@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+
+<title>README - VoteATX</title>
+
+<link type="text/css" media="screen" href="./rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+</script>
+
+<script type="text/javascript" charset="utf-8" src="./js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/navigation.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/search_index.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/search.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/searcher.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/darkfish.js"></script>
+
+
+<body class="file">
+<nav id="metadata">
+  <nav id="home-section" class="section">
+  <h3 class="section-header">
+    <a href="./index.html">Home</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </h3>
+</nav>
+
+
+  <nav id="search-section" class="section project-section" class="initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <h3 class="section-header">
+      <input type="text" name="search" placeholder="Search" id="search-field"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </h3>
+  </form>
+
+  <ul id="search-results" class="initially-hidden"></ul>
+</nav>
+
+
+  
+<div id="table-of-contents">
+  <nav class="section">
+    <h3 class="section-header">Table of Contents</h3>
+    <ul>
+      <li><a href="#label-VoteATX">VoteATX</a>
+      <li><a href="#label-Porting+and+Update">Porting and Update</a>
+      <li><a href="#label-Feedback">Feedback</a>
+    </ul>
+  </nav>
+</div>
+
+
+  <div id="project-metadata">
+    <nav id="fileindex-section" class="section project-section">
+  <h3 class="section-header">Pages</h3>
+
+  <ul>
+  
+    <li class="file"><a href="./README-data_rdoc.html">README-data</a>
+  
+    <li class="file"><a href="./README_rdoc.html">README</a>
+  
+  </ul>
+</nav>
+
+    <nav id="classindex-section" class="section project-section">
+  <h3 class="section-header">Class and Module Index</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="./Array.html">Array</a>
+  
+    <li><a href="./NilClass.html">NilClass</a>
+  
+    <li><a href="./String.html">String</a>
+  
+    <li><a href="./VoteATX.html">VoteATX</a>
+  
+    <li><a href="./VoteATX/Finder.html">VoteATX::Finder</a>
+  
+    <li><a href="./VoteATX/Loader.html">VoteATX::Loader</a>
+  
+    <li><a href="./VoteATX/Service.html">VoteATX::Service</a>
+  
+    <li><a href="./VoteATX/Service/Sinatra.html">VoteATX::Service::Sinatra</a>
+  
+    <li><a href="./VoteATX/VotingPlace.html">VoteATX::VotingPlace</a>
+  
+    <li><a href="./VoteATX/VotingPlace/Base.html">VoteATX::VotingPlace::Base</a>
+  
+    <li><a href="./VoteATX/VotingPlace/Early.html">VoteATX::VotingPlace::Early</a>
+  
+    <li><a href="./VoteATX/VotingPlace/ElectionDay.html">VoteATX::VotingPlace::ElectionDay</a>
+  
+  </ul>
+</nav>
+
+  </div>
+</nav>
+
+<div id="documentation" class="description">
+  
+<h1 id="label-VoteATX"><a href="VoteATX.html">VoteATX</a><span><a href="#label-VoteATX">&para;</a> <a href="#documentation">&uarr;</a></span></h1>
+
+<p><a href="VoteATX.html">VoteATX</a> is a web application that locates best
+places to vote.</p>
+
+<p>It was designed for Travis County elections.</p>
+
+<p>You can view the application running at: <a
+href="http://voteatx.us">voteatx.us</a>/</p>
+
+<p>The source code is published at: <a
+href="https://github.com/chip-rosenthal/voteatx">github.com/chip-rosenthal/voteatx</a></p>
+
+<p>This package has been tested with Ruby 1.9.3. It requires Sqlite3 database
+with Spatialite extensions.</p>
+
+<p>For more information on setting up Spatialite on your system, see: <a
+href="https://github.com/chip-rosenthal/findit-support#spatialite-support">github.com/chip-rosenthal/findit-support#spatialite-support</a></p>
+
+<p>Once the package is downloaded (and Spatialite has been installed), run:</p>
+
+<pre>bundle install</pre>
+
+<p>For development, you can run the application from the command line:</p>
+
+<pre>$ bin/voteatx-svc 
+Starting VoteATX::Service ...
+CONFIGURE: environment = development
+CONFIGURE: root = /home/chip/Workspace/voteatx
+CONFIGURE: public_folder = /home/chip/Workspace/voteatx/public
+CONFIGURE: database = /home/chip/Workspace/voteatx/voteatx.db
+[2013-10-19 16:24:20] INFO  WEBrick 1.3.1
+[2013-10-19 16:24:20] INFO  ruby 1.9.3 (2012-04-20) [x86_64-linux]
+== Sinatra/1.4.3 has taken the stage on 4567 for development with backup from WEBrick
+[2013-10-19 16:24:20] INFO  WEBrick::HTTPServer#start: pid=4838 port=4567</pre>
+
+<p>Then, browse <a href="http://localhost:4567">localhost:4567</a> to see the
+running application.</p>
+
+<p>The application has been deployed using Phusion Passenger (mod_rails) under
+Apache. The “config.ru” file is used in production.</p>
+
+<h2 id="label-Porting+and+Update">Porting and Update<span><a href="#label-Porting+and+Update">&para;</a> <a href="#documentation">&uarr;</a></span></h2>
+
+<p>The application is designed to be portable. The process to deploy at a new
+location – or update for a new election date – should be:</p>
+<ul><li>
+<p>Generate a new database.</p>
+</li><li>
+<p>Update the “public/about.html” page.</p>
+</li></ul>
+
+<p>The <a href="README-data_rdoc.html">README-data.rdoc</a> file provides
+additional information on setting up the database.</p>
+
+<h2 id="label-Feedback">Feedback<span><a href="#label-Feedback">&para;</a> <a href="#documentation">&uarr;</a></span></h2>
+
+<p>Please report any problems or feedback through the issue tracker for this
+project: <a
+href="https://github.com/chip-rosenthal/voteatx/issues">github.com/chip-rosenthal/voteatx/issues</a></p>
+<hr style="height: 1px">
+
+<p>Chip Rosenthal &lt;chip@unicom.com&gt;</p>
+
+</div>
+
+
+
+<footer id="validator-badges">
+  <p><a href="http://validator.w3.org/check/referer">[Validate]</a>
+  <p>Generated by <a href="https://github.com/rdoc/rdoc">RDoc</a> 4.0.1.
+  <p>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish Rdoc Generator</a> 3.
+</footer>
+
