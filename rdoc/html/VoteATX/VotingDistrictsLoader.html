@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+
+<title>class VoteATX::VotingDistrictsLoader - VoteATX</title>
+
+<link type="text/css" media="screen" href="../rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+</script>
+
+<script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/navigation.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/search_index.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/search.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/searcher.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/darkfish.js"></script>
+
+
+<body id="top" class="class">
+<nav id="metadata">
+  <nav id="home-section" class="section">
+  <h3 class="section-header">
+    <a href="../index.html">Home</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </h3>
+</nav>
+
+
+  <nav id="search-section" class="section project-section" class="initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <h3 class="section-header">
+      <input type="text" name="search" placeholder="Search" id="search-field"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </h3>
+  </form>
+
+  <ul id="search-results" class="initially-hidden"></ul>
+</nav>
+
+
+  
+
+  <div id="file-metadata">
+    <nav id="file-list-section" class="section">
+  <h3 class="section-header">Defined In</h3>
+  <ul>
+    <li>lib/voteatx/loader.rb
+  </ul>
+</nav>
+
+    
+  </div>
+
+  <div id="class-metadata">
+    
+    <nav id="parent-class-section" class="section">
+  <h3 class="section-header">Parent</h3>
+  
+  <p class="link">Object
+  
+</nav>
+
+    
+    
+    <!-- Method Quickref -->
+<nav id="method-list-section" class="section">
+  <h3 class="section-header">Methods</h3>
+
+  <ul class="link-list">
+    
+    <li ><a href="#method-c-load">::load</a>
+    
+    <li ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-i-load">#load</a>
+    
+  </ul>
+</nav>
+
+  </div>
+
+  <div id="project-metadata">
+    <nav id="fileindex-section" class="section project-section">
+  <h3 class="section-header">Pages</h3>
+
+  <ul>
+  
+    <li class="file"><a href="../README-data_rdoc.html">README-data</a>
+  
+    <li class="file"><a href="../README_rdoc.html">README</a>
+  
+  </ul>
+</nav>
+
+    <nav id="classindex-section" class="section project-section">
+  <h3 class="section-header">Class and Module Index</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="../Array.html">Array</a>
+  
+    <li><a href="../NilClass.html">NilClass</a>
+  
+    <li><a href="../String.html">String</a>
+  
+    <li><a href="../VoteATX.html">VoteATX</a>
+  
+    <li><a href="../VoteATX/Finder.html">VoteATX::Finder</a>
+  
+    <li><a href="../VoteATX/Service.html">VoteATX::Service</a>
+  
+    <li><a href="../VoteATX/Service/Sinatra.html">VoteATX::Service::Sinatra</a>
+  
+    <li><a href="../VoteATX/VotingDistrictsLoader.html">VoteATX::VotingDistrictsLoader</a>
+  
+    <li><a href="../VoteATX/VotingPlace.html">VoteATX::VotingPlace</a>
+  
+    <li><a href="../VoteATX/VotingPlace/Base.html">VoteATX::VotingPlace::Base</a>
+  
+    <li><a href="../VoteATX/VotingPlace/Early.html">VoteATX::VotingPlace::Early</a>
+  
+    <li><a href="../VoteATX/VotingPlace/ElectionDay.html">VoteATX::VotingPlace::ElectionDay</a>
+  
+    <li><a href="../VoteATX/VotingPlacesLoader.html">VoteATX::VotingPlacesLoader</a>
+  
+  </ul>
+</nav>
+
+  </div>
+</nav>
+
+<div id="documentation">
+  <h1 class="class">class VoteATX::VotingDistrictsLoader</h1>
+
+  <div id="description" class="description">
+    
+<p>Load a geospatial “shape” file with voting districts into a Spatialite
+database.</p>
+
+<p>Uses the “spatialite_tool” command to do the loading.</p>
+
+<p>Requires a parameters file with YAML definitions for: shapefile, codepage,
+srid</p>
+
+  </div><!-- description -->
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+    <!-- Constants -->
+    <section id="constants-list" class="section">
+      <h3 class="section-header">Constants</h3>
+      <dl>
+      
+        <dt id="REQUIRED_PARAMETERS">REQUIRED_PARAMETERS
+        
+        <dd class="description">
+        
+      
+        <dt id="SPATIALITE_TOOL">SPATIALITE_TOOL
+        
+        <dd class="description">
+        
+      
+      </dl>
+    </section>
+    
+
+    
+
+    <!-- Methods -->
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Class Methods</h3>
+
+    
+      <div id="method-c-load" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">load</span><span
+            class="method-args">(params)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="load-source">
+            <pre><span class="ruby-comment"># File lib/voteatx/loader.rb, line 85</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">load</span>(<span class="ruby-identifier">params</span>)
+  <span class="ruby-identifier">new</span>(<span class="ruby-identifier">params</span>).<span class="ruby-identifier">load</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- load-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- load-method -->
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(params)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Construct a voting district loader.</p>
+
+<p>Supported parameters:</p>
+<ul><li>
+<p>:database - Name of the database to load. Required.</p>
+</li><li>
+<p>:table - Name of the database table to create. Required.</p>
+</li><li>
+<p>:shp_defs - File that defines parameters for the import. Required.</p>
+</li><li>
+<p>:loader - Program to use for loading. Defaults to <a
+href="VotingDistrictsLoader.html#SPATIALITE_TOOL">SPATIALITE_TOOL</a>.</p>
+</li><li>
+<p>:log - A Logger instance. Default is to create a new one logging to stderr.</p>
+</li></ul>
+
+<p>Example “shp_defs” file:</p>
+
+<pre>shapefile: VTD2012a.shp
+codepage: CP1252
+srid: 3081</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File lib/voteatx/loader.rb, line 42</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">params</span>)
+  <span class="ruby-ivar">@database</span> = <span class="ruby-identifier">params</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-value">:database</span>) <span class="ruby-keyword">or</span> <span class="ruby-identifier">raise</span> <span class="ruby-string">&quot;required parameter \&quot;:database\&quot; not specified&quot;</span>
+  <span class="ruby-ivar">@table</span> = <span class="ruby-identifier">params</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-value">:table</span>) <span class="ruby-keyword">or</span> <span class="ruby-identifier">raise</span> <span class="ruby-string">&quot;required parameter \&quot;:table\&quot; not specified&quot;</span>
+  <span class="ruby-ivar">@shp_defs</span> = <span class="ruby-identifier">params</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-value">:shp_defs</span>) <span class="ruby-keyword">or</span> <span class="ruby-identifier">raise</span> <span class="ruby-string">&quot;required parameter \&quot;:shp_defs\&quot; not specified&quot;</span>
+  <span class="ruby-ivar">@loader</span> = <span class="ruby-identifier">params</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-value">:loader</span>) <span class="ruby-operator">||</span> <span class="ruby-constant">SPATIALITE_TOOL</span>
+  <span class="ruby-ivar">@log</span> = <span class="ruby-identifier">params</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-value">:log</span>) <span class="ruby-operator">||</span> <span class="ruby-constant">Logger</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">$stderr</span>)
+  <span class="ruby-identifier">raise</span> <span class="ruby-node">&quot;unknown parameter(s): #{params.keys.join(', ')}&quot;</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">params</span>.<span class="ruby-identifier">empty?</span>
+
+  <span class="ruby-ivar">@log</span>.<span class="ruby-identifier">info</span>(<span class="ruby-node">&quot;loading voting district parameters from \&quot;#{@shp_defs}\&quot; ...&quot;</span>)
+  <span class="ruby-ivar">@shp</span> = <span class="ruby-constant">YAML</span>.<span class="ruby-identifier">load_file</span>(<span class="ruby-ivar">@shp_defs</span>)
+  <span class="ruby-constant">REQUIRED_PARAMETERS</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">p</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-node">&quot;#{@shp_defs}: required parameter \&quot;#{p}\&quot; undefined&quot;</span> <span class="ruby-keyword">unless</span> <span class="ruby-ivar">@shp</span>.<span class="ruby-identifier">has_key?</span>(<span class="ruby-identifier">p</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">unless</span> <span class="ruby-ivar">@shp</span>[<span class="ruby-string">&quot;shapefile&quot;</span>] <span class="ruby-operator">=~</span> <span class="ruby-regexp">%r{^/}</span>
+    <span class="ruby-ivar">@shp</span>[<span class="ruby-string">&quot;shapefile&quot;</span>].<span class="ruby-identifier">insert</span>(<span class="ruby-value">0</span>, <span class="ruby-constant">File</span>.<span class="ruby-identifier">dirname</span>(<span class="ruby-ivar">@shp_defs</span>) <span class="ruby-operator">+</span> <span class="ruby-string">&quot;/&quot;</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- new-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- new-method -->
+
+    
+    </section><!-- public-class-method-details -->
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Instance Methods</h3>
+
+    
+      <div id="method-i-load" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">load</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="load-source">
+            <pre><span class="ruby-comment"># File lib/voteatx/loader.rb, line 61</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">load</span>
+  <span class="ruby-ivar">@log</span>.<span class="ruby-identifier">info</span>(<span class="ruby-string">&quot;starting import of voting districts&quot;</span>)
+  <span class="ruby-ivar">@log</span>.<span class="ruby-identifier">info</span>(<span class="ruby-node">&quot;  source file: #{@shp['shapefile']}&quot;</span>)
+  <span class="ruby-ivar">@log</span>.<span class="ruby-identifier">info</span>(<span class="ruby-node">&quot;  target database: #{@database}&quot;</span>)
+  <span class="ruby-ivar">@log</span>.<span class="ruby-identifier">info</span>(<span class="ruby-node">&quot;  target table: #{@table}&quot;</span>)
+
+  <span class="ruby-identifier">cmd</span> = [
+    <span class="ruby-ivar">@loader</span>,
+    <span class="ruby-string">&quot;-i&quot;</span>,
+    <span class="ruby-string">&quot;-shp&quot;</span>,
+    <span class="ruby-ivar">@shp</span>[<span class="ruby-string">'shapefile'</span>].<span class="ruby-identifier">sub</span>(<span class="ruby-regexp">/\.shp$/</span>, <span class="ruby-string">''</span>),
+    <span class="ruby-string">&quot;-d&quot;</span>,
+    <span class="ruby-ivar">@database</span>,
+    <span class="ruby-string">&quot;-t&quot;</span>,
+    <span class="ruby-ivar">@table</span>,
+    <span class="ruby-string">&quot;-c&quot;</span>,
+    <span class="ruby-ivar">@shp</span>[<span class="ruby-string">&quot;codepage&quot;</span>],
+    <span class="ruby-string">&quot;-s&quot;</span>,
+    <span class="ruby-ivar">@shp</span>[<span class="ruby-string">&quot;srid&quot;</span>],
+  ]
+  <span class="ruby-ivar">@log</span>.<span class="ruby-identifier">info</span>(<span class="ruby-node">&quot;executing: #{cmd.join(' ')}&quot;</span>)
+  <span class="ruby-identifier">raise</span> <span class="ruby-string">&quot;command failed&quot;</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">system</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">cmd</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- load-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- load-method -->
+
+    
+    </section><!-- public-instance-method-details -->
+  
+  </section><!-- 5Buntitled-5D -->
+
+</div><!-- documentation -->
+
+
+<footer id="validator-badges">
+  <p><a href="http://validator.w3.org/check/referer">[Validate]</a>
+  <p>Generated by <a href="https://github.com/rdoc/rdoc">RDoc</a> 4.0.1.
+  <p>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish Rdoc Generator</a> 3.
+</footer>
+

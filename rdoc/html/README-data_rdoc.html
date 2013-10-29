@@ -49,9 +49,12 @@
     <h3 class="section-header">Table of Contents</h3>
     <ul>
       <li><a href="#label-VoteATX+Database+Generation">VoteATX Database Generation</a>
-      <li><a href="#label-Overview+of+Database+Tables">Overview of Database Tables</a>
+      <li><a href="#label-Data+Sources">Data Sources</a>
+      <li><a href="#label-Voting+Places+%3D%3D%3D">Voting Places ===</a>
+      <li><a href="#label-Voting+Districts+%3D%3D%3D">Voting Districts ===</a>
       <li><a href="#label-How+to+Create+the+Database">How to Create the Database</a>
       <li><a href="#label-How+to+Setup+Database+for+a+New+Election">How to Setup Database for a New Election</a>
+      <li><a href="#label-Overview+of+Database+Tables">Overview of Database Tables</a>
       <li><a href="#label-Problems+and+Feedback">Problems and Feedback</a>
     </ul>
   </nav>
@@ -86,11 +89,11 @@
   
     <li><a href="./VoteATX/Finder.html">VoteATX::Finder</a>
   
-    <li><a href="./VoteATX/Loader.html">VoteATX::Loader</a>
-  
     <li><a href="./VoteATX/Service.html">VoteATX::Service</a>
   
     <li><a href="./VoteATX/Service/Sinatra.html">VoteATX::Service::Sinatra</a>
+  
+    <li><a href="./VoteATX/VotingDistrictsLoader.html">VoteATX::VotingDistrictsLoader</a>
   
     <li><a href="./VoteATX/VotingPlace.html">VoteATX::VotingPlace</a>
   
@@ -99,6 +102,8 @@
     <li><a href="./VoteATX/VotingPlace/Early.html">VoteATX::VotingPlace::Early</a>
   
     <li><a href="./VoteATX/VotingPlace/ElectionDay.html">VoteATX::VotingPlace::ElectionDay</a>
+  
+    <li><a href="./VoteATX/VotingPlacesLoader.html">VoteATX::VotingPlacesLoader</a>
   
   </ul>
 </nav>
@@ -110,73 +115,32 @@
   
 <h1 id="label-VoteATX+Database+Generation"><a href="VoteATX.html">VoteATX</a> Database Generation<span><a href="#label-VoteATX+Database+Generation">&para;</a> <a href="#documentation">&uarr;</a></span></h1>
 
-<h2 id="label-Overview+of+Database+Tables">Overview of Database Tables<span><a href="#label-Overview+of+Database+Tables">&para;</a> <a href="#documentation">&uarr;</a></span></h2>
-
-<p>Here is an overview of the key tables in the <em>VoteATX</em> database:</p>
-<dl class="rdoc-list label-list"><dt>voting_places
-<dd>
-<p>A voting place of any kind (early, mobile, election day) for this election.
-This is the table searched to find places to vote.</p>
-</dd><dt>voting_locations
-<dd>
-<p>A location where a voting place is.</p>
-
-<p><em>voting_places.location_id</em> is a foreign key into this table.</p>
-</dd><dt>voting_schedules
-<dd>
-<p>A schedule of hours for a voting place.</p>
-
-<p><em>voting_places.schedule_id</em> is a foreign key into this table.</p>
-</dd><dt>voting_schedule_entries
-<dd>
-<p>The line item details for a voting schedule.</p>
-
-<p>Each row is the open and close times for a single day in a schedule. The
-<em>schedule_id</em> column is a foreign key into the
-<em>voting_schedules</em> table.</p>
-</dd><dt>voting_districts
-<dd>
-<p>Boundaries of all the voting precincts.</p>
-
-<p>This is made from a completely separate data source: the geospatial “shape”
-file of voting districts. This is used to locate the precinct number for a
-given location (longitude/latitude).</p>
-</dd><dt>election_defs
-<dd>
-<p>Defintions to customize results for this election are stored here.</p>
-
-<p>The app should not require changes when updating to a new election. The
-information that might change, such as the election description, is stored
-here.</p>
-</dd></dl>
+<h2 id="label-Data+Sources">Data Sources<span><a href="#label-Data+Sources">&para;</a> <a href="#documentation">&uarr;</a></span></h2>
 
 <p>The database is generated from two sets of data:</p>
-<dl class="rdoc-list label-list"><dt>voting districts
-<dd>
+
+<h3 id="label-Voting+Places+%3D%3D%3D">Voting Places ===<span><a href="#label-Voting+Places+%3D%3D%3D">&para;</a> <a href="#documentation">&uarr;</a></span></h3>
+
 <p>The Travis County Clerk has provided a spreadsheet with three tables, one
 each for the various voting place types (election day, early fixed, early
 mobile). We manually convert them to individual CSV files, and then use a
 loader utility to load the voting place table.</p>
 
-<p>This information is in the “data/voting-districts/<em>YYYY</em>”
-subdirectory, where “YYYY” is the year in which the voting districts were
-drawn.</p>
-</dd><dt>voting places
-<dd>
+<p>This information is in the “data/voting-places/<em>YYYYMMDD</em>”
+subdirectory, where “<em>YYYYMMDD</em>” is the data of the election.</p>
+
+<h3 id="label-Voting+Districts+%3D%3D%3D">Voting Districts ===<span><a href="#label-Voting+Districts+%3D%3D%3D">&para;</a> <a href="#documentation">&uarr;</a></span></h3>
+
+<p>This information is pretty stable, and changes only when redistricting
+occurs.</p>
+
 <p>The Travis County Tax Acessor-Collector office has provided a geospatial
 “shape” file that defines the boundaries of all the voting districts. We
 use “spatialite_tool” to load the SHP file into the database.</p>
 
-<p>This information is in the “data/voting-places/<em>YYYYMMDD</em>”
-subdirectory, where “<em>YYYYMMDD</em>” is the data of the election.</p>
-</dd></dl>
-
-<p>Helpful Hint: The Firefox “SQLite Manager” plug-in is a great tool for
-exploring SQLite databases. It works fine for Spatialite databases, with
-the provision that <em>geometry</em> columns should be treated as opaque
-blobs, and there will be a number of additional tables created by
-Spatialite for geospatial support.  More info here: <a
-href="https://code.google.com/p/sqlite-manager">code.google.com/p/sqlite-manager</a>/</p>
+<p>This information is in the “data/voting-districts/<em>YYYY</em>”
+subdirectory, where “YYYY” is the year in which the voting districts were
+drawn.</p>
 
 <h2 id="label-How+to+Create+the+Database">How to Create the Database<span><a href="#label-How+to+Create+the+Database">&para;</a> <a href="#documentation">&uarr;</a></span></h2>
 
@@ -221,6 +185,53 @@ script for additional information.</p>
 <p>Make corrections to the data (“CSV” files) as needed, and re-run the
 creation script.</p>
 </li></ul>
+
+<h2 id="label-Overview+of+Database+Tables">Overview of Database Tables<span><a href="#label-Overview+of+Database+Tables">&para;</a> <a href="#documentation">&uarr;</a></span></h2>
+
+<p>Here is an overview of the key tables in the <em>VoteATX</em> database:</p>
+<dl class="rdoc-list label-list"><dt>voting_places
+<dd>
+<p>A voting place of any kind (early, mobile, election day) for this election.
+This is the table searched to find places to vote.</p>
+</dd><dt>voting_locations
+<dd>
+<p>A location where a voting place is.</p>
+
+<p><em>voting_places.location_id</em> is a foreign key into this table.</p>
+</dd><dt>voting_schedules
+<dd>
+<p>A schedule of hours for a voting place.</p>
+
+<p><em>voting_places.schedule_id</em> is a foreign key into this table.</p>
+</dd><dt>voting_schedule_entries
+<dd>
+<p>The line item details for a voting schedule.</p>
+
+<p>Each row is the open and close times for a single day in a schedule. The
+<em>schedule_id</em> column is a foreign key into the
+<em>voting_schedules</em> table.</p>
+</dd><dt>voting_districts
+<dd>
+<p>Boundaries of all the voting precincts.</p>
+
+<p>This is made from a completely separate data source: the geospatial “shape”
+file of voting districts. This is used to locate the precinct number for a
+given location (longitude/latitude).</p>
+</dd><dt>election_defs
+<dd>
+<p>Defintions to customize results for this election are stored here.</p>
+
+<p>The app should not require changes when updating to a new election. The
+information that might change, such as the election description, is stored
+here.</p>
+</dd></dl>
+
+<p>Helpful Hint: The Firefox “SQLite Manager” plug-in is a great tool for
+exploring SQLite databases. It works fine for Spatialite databases, with
+the provision that <em>geometry</em> columns should be treated as opaque
+blobs, and there will be a number of additional tables created by
+Spatialite for geospatial support.  More info here: <a
+href="https://code.google.com/p/sqlite-manager">code.google.com/p/sqlite-manager</a>/</p>
 
 <h2 id="label-Problems+and+Feedback">Problems and Feedback<span><a href="#label-Problems+and+Feedback">&para;</a> <a href="#documentation">&uarr;</a></span></h2>
 
